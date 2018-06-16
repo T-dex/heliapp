@@ -23,7 +23,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          {passwords.map(key=>key)}
+          Will this work yes or no?
         </p>
       </div>
     );
