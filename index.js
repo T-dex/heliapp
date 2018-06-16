@@ -46,6 +46,7 @@ app.post("/api/form", (req, res) => {
     html: htmlEmail,
     inline: filepath
   };
+  res.json(htmlEmail)
 
   mailgun.messages().send(data, function(error, body) {
     console.log(body);
