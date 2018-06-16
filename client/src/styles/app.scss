@@ -1,0 +1,360 @@
+//Fonts
+@font-face {
+  font-family: Main;
+  src: url('./fonts/cloudveil_font.otf');
+}
+
+.font {
+  font-family: Main;
+}
+
+//colors
+$cloudveilBlue:#50AADF;
+$cloudveilplatinum:#E0E0E0;
+$cloudveilGold:#D48C3C;
+$cloudveilGrey:#6D6D6D;
+$cloudveilWhite:#FFFFFF;
+$cloudveilBlack:#000;
+
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+// Head title
+.header {
+  height: 7em;
+  width: 100%;
+  display: flex;
+  background-color: $cloudveilplatinum;
+  justify-content: space-between;
+
+  // Phone display
+  @media (max-width: 850px) {
+    height: 3em;
+  }
+  //tablet break point
+  @media (min-width: 850px) and (max-width: 1024px) {
+    padding-right: 0.1em;
+    margin-right: 0.1em;
+    height: 4em;
+  }
+}
+.header_title {
+  display: flex;
+  justify-content: space-between;
+  //tablet break point
+  @media (min-width: 850px) and (max-width: 1024px) {
+  }
+}
+.title {
+  font-size: 2em;
+  padding-right: 0.25em;
+  margin-right: 0.25em;
+  //Phone break point
+  @media (max-width: 850px) {
+    font-size: 0.75em;
+    padding-right: 0.1em;
+    margin-right: 0.1em;
+  }
+  //tablet break point
+  @media (min-width: 850px) and (max-width: 1024px) {
+    font-size: 0.75em;
+    padding-right: 0.1em;
+    margin-right: 0.1em;
+  }
+}
+.mainLogo {
+  height: 3em;
+  width: 4em;
+  // padding-right: 1em;
+
+  //phone break point
+  @media (max-width: 950px) {
+    height: 0.75em;
+    width: 1em;
+  }
+
+  //tablet break point
+  @media (min-width: 750px) and (max-width: 1240px) {
+    height: 2em;
+    width: 3em;
+    padding-right: 1em;
+  }
+}
+//header and Nav Bar
+.top-bar {
+  display: flex;
+  height:50px;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: $cloudveilBlue;
+
+  .navigation {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+  }
+  .navigation:hover{
+    background-color: $cloudveilGold;
+  }
+}
+
+//Login Page
+.loginPage {
+  display: flex;
+  flex: 1;
+  height: 7em;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1em;
+  margin-top: -1.25em;
+  @media (max-width: 850px) {
+    height: 3em;
+    margin-top: 0;
+  }
+}
+.loginFields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  @media (max-width: 850px) {
+    flex-direction: row;
+  }
+}
+.inputfield {
+  background-color: $cloudveilWhite;
+}
+
+.userButton {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-self: flex-end;
+  .userLogIn {
+    align-self: baseline;
+    justify-content: flex-end;
+    align-content: flex-end;
+    margin-right: 2em;
+    margin-bottom: 0.5em;
+    background-color: $cloudveilBlack;
+    color: $cloudveilWhite;
+  }
+}
+.button{
+  color:$cloudveilBlack;
+  font-family: Main;
+  background-color:$cloudveilGold ;
+}
+.button:hover{
+  background-color: $cloudveilBlue;
+}
+//main area
+
+.mainArea {
+  display: flex;
+  overflow: scroll;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.dropdownSelector {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.PicDisplay {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  overflow: scroll;
+}
+.Display {
+  border: 10px solid $cloudveilBlack;
+  width: 20em;
+  height: 20em;
+}
+
+.BrianBoitano {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+//calendar
+.selectionpage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap:10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.operatingArea {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 3px;
+  .options {
+    align-self: flex-start;
+  }
+
+  li {
+    height: 50px;
+    border: 1px solid black;
+    list-style: none;
+    background: $cloudveilGrey;
+    width: 100%;
+    padding-left: 3px;
+  }
+}
+.selection {
+  display: flex;
+  flex-direction: row;
+  height: 28%;
+}
+.dropdownStyle{
+  background:$cloudveilWhite;
+  font-family:Main;
+}
+.dropdownMenu {
+  display: flex;
+}
+
+.people li {
+  height: 35px;
+}
+
+///calendar build
+.calendar-container,
+.calendar,
+.calendar-header,
+td,
+tr {
+    font-family: Main;
+    padding: 0;
+    margin: 0;
+}
+
+.calendar-container {
+    border: 10px double $cloudveilBlue;
+}
+
+.calendar {
+    background-color: $cloudveilWhite;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.calendar-header {
+    border-bottom: 1px dashed $cloudveilBlue;
+    font-size: 1.6em;
+}
+
+.calendar-header td {
+    border-spacing: 0;
+    padding-left: 5px;
+}
+
+.day,
+.empty-slot,
+.week-day {
+    text-align: center;
+    height: 40px;
+}
+
+.week-day {
+    font-size: 0.8em;
+}
+
+.day {
+    font-size: 0.8em;
+}
+
+.day {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+.standby{
+    display: block;
+    border:4px double yellow;
+    border-radius:100px;
+
+}
+.fly{
+  display: block;
+   border:4px double green;
+   border-radius: 100px;
+   }
+
+  .flyno{
+    display:block;
+    border:4px double yellow;
+    border-radius:100px;
+  }
+
+.current-day {
+    background-color: $cloudveilGold;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 35%;
+    color: $cloudveilWhite;
+}
+
+.selected-day {
+    background-color:green;
+    line-height: 28px;
+    border-radius: 100px;
+    color: black;
+}
+
+.month-popup {
+    position: absolute;
+    padding: 5px;
+    background: white;
+    border: 2px solid skyblue;
+}
+
+.month-popup div {
+    padding: 0.3em;
+}
+
+.nav-month {
+    position: absolute;
+    top: 0.6em;
+    font-size: 0.6em;
+    right:3px;
+}
+
+.prev {
+}
+
+.next {
+}
+
+.editor-year {
+    max-width: 3.6em;
+}
+
+.label-month,
+.label-year {
+    font-size: 0.6em;
+}
+
+.label-month {
+    cursor: pointer;
+}
