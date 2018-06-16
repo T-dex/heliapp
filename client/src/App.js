@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Rebase from 're-base';
 import firebase, { auth } from './firebase/firebase';
 import './styles/app.css';
 import { EventEmitter } from 'events';
@@ -33,12 +32,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getShitfromAPI();
-    {
-      base.syncState(`staging`, {
-        context: this,
-        state: "production"
-      });
-    }
+   
     const email = localStorage.getItem("email");
     const uid = localStorage.getItem("uid");
     this.setState({ user: email });
