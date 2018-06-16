@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 app.use(logger('dev'));
 
 app.post("/api/form", (req, res) => {
+    const test=<p>Jesus titty fuckign christ</p>
   const email = req.body.user;
   const htmlEmail = `
   <body style="padding:0;margin:0;">
@@ -46,7 +47,7 @@ app.post("/api/form", (req, res) => {
     html: htmlEmail,
     inline: filepath
   };
-  res.json(htmlEmail)
+  res.json(test)
 
   mailgun.messages().send(data, function(error, body) {
     console.log(body);
