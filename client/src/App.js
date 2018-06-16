@@ -10,7 +10,6 @@ import Weather from "./weather.js/weather";
 import { withRouter } from "react-router-dom";
 
 
-const base = Rebase.createClass(firebase.database());
 
 class App extends Component {
   constructor(props) {
