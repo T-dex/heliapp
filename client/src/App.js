@@ -40,7 +40,7 @@ class App extends Component {
  
 
   componentWillUnmount() {
-    base.removeBinding(this.ref);
+   
   }
 
   componentWillMount() {
