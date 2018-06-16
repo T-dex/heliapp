@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "client", "build")))
 app.use(logger('dev'));
 
-app.get("/api/form", (req, res) => {
-const test=`<p>Jesus titty fuckign christ</p>`
+app.get("/api", (req, res) => {
+const passwords={key:"Jesus titty fuckign christ"}
 //   const email = req.body.user;
 //   const htmlEmail = `
 //   <body style="padding:0;margin:0;">
@@ -52,7 +52,7 @@ const test=`<p>Jesus titty fuckign christ</p>`
 //   mailgun.messages().send(data, function(error, body) {
 //     console.log(body);
 //   });
-  res.json(test)
+  res.json(passwords)
 });
 const dirName=__dirname;
 
@@ -64,7 +64,7 @@ app.get('/', (req, res)=>{
   }
 )
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT} `);
