@@ -52,6 +52,7 @@ const test=`<p>Jesus titty fuckign christ</p>`
 //   mailgun.messages().send(data, function(error, body) {
 //     console.log(body);
 //   });
+  res.json(test)
 });
 const dirName=__dirname;
 
