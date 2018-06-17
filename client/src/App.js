@@ -31,12 +31,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getShitfromAPI();
-    {
-      base.syncState(`staging`, {
-        context: this,
-        state: "production"
-      });
-    }
     const email = localStorage.getItem("email");
     const uid = localStorage.getItem("uid");
     this.setState({ user: email });
@@ -44,9 +38,7 @@ class App extends Component {
   };
  
 
-  componentWillUnmount() {
-    base.removeBinding(this.ref);
-  }
+ 
 
   componentWillMount() {
     this.eventEmitter = new EventEmitter();
