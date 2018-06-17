@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Rebase from 're-base';
 import firebase, { auth } from './firebase/firebase';
 import './styles/app.css';
 import { EventEmitter } from 'events';
@@ -8,8 +9,10 @@ import Pics from "./customerPics/pictures";
 import NavBar from "./navComponents";
 import Weather from "./weather.js/weather";
 import { withRouter } from "react-router-dom";
+import axios from 'axios'
 
 
+const base = Rebase.createClass(firebase.database());
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +34,12 @@ class App extends Component {
 
   componentDidMount() {
     this.getShitfromAPI();
-   
+    {
+      base.syncState(`staging`, {
+        context: this,
+        state: "production"
+      });
+    }
     const email = localStorage.getItem("email");
     const uid = localStorage.getItem("uid");
     this.setState({ user: email });
@@ -40,7 +48,7 @@ class App extends Component {
  
 
   componentWillUnmount() {
-   
+    base.removeBinding(this.ref);
   }
 
   componentWillMount() {
@@ -96,11 +104,11 @@ class App extends Component {
     this.setState({ user: localStorage.email });
     this.setState({ uid: localStorage.uid });
   }
-  getShitfromAPI=()=>{
-    fetch('/api')
-    .then(res=>res.json())
-    .then(password=>this.setState({test:password}))
-  }
+getShitfromAPI=()=>{
+          fetch('/api')
+          .then(res=>res.json())
+          .then(password=>this.setState({test:password}))
+        }
   async newReservation(Res) {
     if (this.state.remainingdays === 0) {
       alert("Please contact Admin about adding more days!");
@@ -249,10 +257,10 @@ class App extends Component {
           addReservationAM.reservationOne || addReservationPM.reservationTwo
         );
         const { user } = this.state;
-        // const emailUserAndAdmin = await axios.post("api/form", {
-        //   user,
-        //   Res
-        // });
+        const emailUserAndAdmin = await axios.post("api/", {
+          user,
+          Res
+        });
       }
     }
   }
