@@ -12,8 +12,6 @@ import { withRouter } from "react-router-dom";
 import axios from 'axios'
 
 
-const base = Rebase.createClass(firebase.database());
-
 class App extends Component {
   constructor(props) {
     super(props);
