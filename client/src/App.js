@@ -255,6 +255,8 @@ getShitfromAPI=()=>{
   }
 
   render() {
+    console.log(auth, firebase);
+    
     if (this.state.user !== null) {
       const remainingDays = { ...this.state.production.users };
       Object.keys(remainingDays)
