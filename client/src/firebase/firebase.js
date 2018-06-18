@@ -8,6 +8,8 @@ const config = {
 };
 firebase.initializeApp(config)
 
+const connected="Is this connected?"
+console.log(connected);
 
 
 export const auth = firebase.auth();
