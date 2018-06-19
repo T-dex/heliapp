@@ -15,7 +15,7 @@ class InstaFeed extends Component {
       });
   }
   render() {
-    return <h1>Wakka</h1>;
+    return <h1>\</h1>;
   }
 }
 
