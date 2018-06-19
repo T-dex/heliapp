@@ -27,7 +27,7 @@ html {
   height: 7em;
   width: 100%;
   display: flex;
-  background-color: linear-gradient(to left, $cloudveilGold 0%,$cloudveilBlue 50%, $cloudveilplatinum 100%);
+  background: linear-gradient(to left, $cloudveilGold 0%,$cloudveilBlue 50%, $cloudveilplatinum 100%);
   justify-content: space-between;
 
   // Phone display
