@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import { log } from 'util';
 
 const config = {
   apiKey: "AIzaSyAM0DL6QzhVONFmxP5OHWGi9Vj4lS2RbbM",
@@ -7,9 +8,8 @@ const config = {
   storageBucket: "bluebirdheli-dd1f5.appspot.com",
 };
 firebase.initializeApp(config)
-
-const connected="Is this connected?"
-console.log(connected);
+const testAuth=firebase.auth();
+console.log(testAuth);
 
 
 export const auth = firebase.auth();

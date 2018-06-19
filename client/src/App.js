@@ -30,14 +30,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getShitfromAPI();
+   const rootRef=firebase.database().ref()
+   const mainRef=rootRef.child('staging');
+   console.log(mainRef);
+   
+   mainRef.on('value', snap=>{
+     this.setState({production:snap.val()})
+   })
+    
     const email = localStorage.getItem("email");
     const uid = localStorage.getItem("uid");
     this.setState({ user: email });
     this.setState({ uid: uid });
   };
- 
-
  
 
   componentWillMount() {
@@ -48,17 +53,18 @@ class App extends Component {
   }
   
   renderLogin(logInfo) {
-    const email = logInfo.email;
+    const email = logInfo.email;  
     const pass = logInfo.pass;
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise
       .then(snapshot => {
+        console.log(snapshot);
         let logInSucess = "Logging in...";
         const userName = "Welcome back";
-        this.setState({ user: snapshot.email });
-        this.setState({ uid: snapshot.uid });
-        localStorage.setItem("email", snapshot.email);
-        localStorage.setItem("uid", snapshot.uid);
+        this.setState({ user: snapshot.user.email });
+        this.setState({ uid: snapshot.user.uid });
+        localStorage.setItem("email", snapshot.user.email);
+        localStorage.setItem("uid", snapshot.user.uid);
       })
 
       .catch(error => {
@@ -255,7 +261,6 @@ getShitfromAPI=()=>{
   }
 
   render() {
-    console.log(auth, firebase);
     
     if (this.state.user !== null) {
       const remainingDays = { ...this.state.production.users };

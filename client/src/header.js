@@ -12,7 +12,6 @@ class Header extends Component {
     const madeReservations = Object.keys(this.props.reservations).map(
       key => this.props.reservations[key]
     ).map(key=>{
-      console.log(key.reservationOne,key.reservationTwo)
       return key.reservationOne || key.reservationTwo
     }
     )
