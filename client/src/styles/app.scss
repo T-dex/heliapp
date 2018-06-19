@@ -27,7 +27,7 @@ html {
   height: 7em;
   width: 100%;
   display: flex;
-  background-color: $cloudveilplatinum;
+  background-color: linear-gradient(to left, $cloudveilGold 0%,$cloudveilBlue 50%, $cloudveilplatinum 100%);
   justify-content: space-between;
 
   // Phone display
@@ -339,11 +339,6 @@ tr {
     right:3px;
 }
 
-.prev {
-}
-
-.next {
-}
 
 .editor-year {
     max-width: 3.6em;

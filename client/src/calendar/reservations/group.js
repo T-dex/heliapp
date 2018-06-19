@@ -7,7 +7,7 @@ class Group extends Component{
 
   render(){
     return(
-      <h4>test<h4>
+      <h4>test</h4>
     )
   }
 }
