@@ -469,7 +469,7 @@ class ResPage extends Component {
             <option value="PM">PM</option>
           </select>
         </div>
-        <div>{timePickUpDropDown}</div>
+        <div className="selection">{timePickUpDropDown}</div>
         <Calendar
           style={style}
           onDayClick={(e, day) => this.onDayClick(e, day)}

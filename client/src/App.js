@@ -252,7 +252,7 @@ getShitfromAPI=()=>{
           addReservationAM.reservationOne || addReservationPM.reservationTwo
         );
         const { user } = this.state;
-        const emailUserAndAdmin = await axios.post("api/", {
+        const emailUserAndAdmin = await axios.post("api", {
           user,
           Res
         });

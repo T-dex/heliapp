@@ -160,7 +160,6 @@ html {
 
 .mainArea {
   display: flex;
-  overflow: scroll;
   justify-content: center;
   padding: 5px;
   margin: 5px;
@@ -193,7 +192,7 @@ html {
 //calendar
 .selectionpage {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap:10px;
   width: 100%;
   justify-content: space-between;

@@ -9,7 +9,7 @@ class Reservation extends Component{
   render(){
 
     return(
-      <h4>Test</h4>
+      <h4></h4>
     )
   }
 }
