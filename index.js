@@ -19,7 +19,6 @@ app.use(logger('dev'));
 
 app.post("/api", (req, res) => {
   console.log(req.body);
-  
   const email = req.body.user;
   const htmlEmail = `
   <body style="padding:0;margin:0;">
@@ -43,7 +42,7 @@ app.post("/api", (req, res) => {
   </table>`;
   console.log(req.body.Res, req.body.user);
   var data = {
-    from: "dex.mills@dexmills.com",
+    from: "info@cloudveilmountainheli.com",
     to: email,
     subject: "Hello",
     html: htmlEmail,

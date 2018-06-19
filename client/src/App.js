@@ -280,7 +280,7 @@ getShitfromAPI=()=>{
     if (this.state.user == null) {
       userPage = (
         <div>
-          <h1 className="font"> Please Log In!</h1>
+          <h1 className="font"> Log In!</h1>
         </div>
       );
     } else if (this.state.page === 1 && this.state.user !== null) {
