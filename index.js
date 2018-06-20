@@ -46,8 +46,8 @@ app.post("/api", (req, res) => {
   var data = {
     from: "info@cloudveilmountainheli.com",
     to: email,
-    bcc:"info@cloudveilmountainheli.com"
-    subject: "Hello",
+    bcc:"info@cloudveilmountainheli.com",
+    subject: "Your up coming Heli Reservation with Bluebird Heli",
     html: htmlEmail,
     inline: filepath
   };
