@@ -14,7 +14,7 @@ class Calendar extends Component {
   };
   constructor(props) {
     super(props);
-    this.width = props.width || "350px";
+    this.width = props.width || "25vh";
     this.style = props.style || {};
   }
 
@@ -211,7 +211,7 @@ class Calendar extends Component {
         <td key={monthPickUp + "-" + dayPickup} ref="day">
           <span
             value={monthToString + "-" + dayPickup}
-            className={selectedClass}
+            className={selectedClass + className}
             onClick={e => {
               this.onDayClick(e, reservationDate, day);
             }}

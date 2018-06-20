@@ -10,6 +10,13 @@ import Weather from "./weather.js/weather";
 import { withRouter } from "react-router-dom";
 import axios from 'axios'
 
+const date=   new Date();
+const month = date.getMonth()+1;
+const updatedMonth= month < 10 ? "0"+month : month
+const year = date.getFullYear();
+const day= date.getDay();
+const updatedDay=day < 10 ? "0"+ day : day
+const currentDate= year + "-"+updatedMonth+"-"+updatedDay;
 
 class App extends Component {
   constructor(props) {
@@ -88,6 +95,7 @@ class App extends Component {
   logOut(pageLogout) {
     this.setState({ user: null });
     this.setState({ uid: null });
+    this.setState({remainingdays:null})
     firebase.auth().signOut();
     localStorage.removeItem("email");
     localStorage.removeItem("uid");
@@ -107,7 +115,9 @@ getShitfromAPI=()=>{
   async newReservation(Res) {
     if (this.state.remainingdays === 0) {
       alert("Please contact Admin about adding more days!");
-    } else {
+    } else if(Res.day<currentDate){
+      alert("We are workign on time travel but don't have the ability yet to fly into the past...")
+    }else {
       let res = Object.keys(this.state.production.days).map(
         key => this.state.production.days[key]
       );
@@ -261,6 +271,7 @@ getShitfromAPI=()=>{
   }
 
   render() {
+    console.log(currentDate, updatedMonth);
     
     if (this.state.user !== null) {
       const remainingDays = { ...this.state.production.users };

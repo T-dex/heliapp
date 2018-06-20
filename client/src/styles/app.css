@@ -125,7 +125,8 @@ html {
   display: flex;
   justify-content: center;
   padding: 5px;
-  margin: 5px; }
+  margin: 5px;
+  overflow-x: scroll; }
 
 .dropdownSelector {
   display: flex;
@@ -150,10 +151,18 @@ html {
 
 .selectionpage {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   width: 100%;
   justify-content: space-between; }
+
+.giver {
+  display: grid;
+  align-self: center; }
+
+button {
+  height: 4vh;
+  font-family: Main; }
 
 .operatingArea {
   display: inline-flex;
@@ -222,10 +231,9 @@ tr {
   font-size: 0.8em; }
 
 .day {
-  font-size: 0.8em; }
-
-.day {
+  font-size: 0.8em;
   cursor: pointer;
+  padding: .3vh;
   width: 24px;
   height: 24px;
   line-height: 24px; }
@@ -257,6 +265,7 @@ tr {
   background-color: green;
   line-height: 28px;
   border-radius: 100px;
+  border: .1vh double green;
   color: black; }
 
 .month-popup {

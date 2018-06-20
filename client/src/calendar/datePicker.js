@@ -8,6 +8,40 @@ const style = {
   margin: "50px auto",
   width: "502px"
 };
+const amDropdown=[
+  {key:0 ,value:'6:30 AM' , text:'6:30 AM' },
+  {key:1 ,value:'6:45 AM' , text:'6:45 AM' },
+  {key:2 ,value:'7:00 AM' , text:'7:00 AM' },
+  {key:3 ,value:'7:15 AM' , text:'7:15 AM' },
+  {key:4 ,value:'7:30 AM' , text:'7:30 AM' },
+  {key:5 ,value:'7:45 AM' , text:'7:45 AM' },
+  {key:6 ,value:'8:00 AM' , text:'8:00 AM' },
+  {key:7 ,value:'8:15 AM' , text:'8:15 AM' },
+  {key:8 ,value:'8:30 AM' , text:'8:30 AM' },
+  {key:9 ,value:'8:45 AM' , text:'8:45 AM' },
+  {key:10 ,value:'9:00 AM' , text:'9:00 AM' },
+  {key:11 ,value:'9:15 AM' , text:'9:15 AM' },
+  {key:12 ,value:'9:30 AM' , text:'9:30 AM' },
+  {key:13 ,value:'9:45 AM' , text:'9:45 AM' },
+  {key:14 ,value:'10:00 AM' , text:'10:00 AM' }
+]
+const pmDropdown=[
+  {key:0 ,value:'1:00 PM' , text:'1:00 PM' },
+  {key:1 ,value:'1:15 PM' , text:'1:15 PM' },
+  {key:2 ,value:'1:30 PM' , text:'1:30 PM' },
+  {key:3 ,value:'1:45 PM' , text:'1:45 PM' },
+  {key:4 ,value:'2:00 PM' , text:'2:00 PM' },
+  {key:5 ,value:'2:15 PM' , text:'2:15 PM' },
+  {key:6 ,value:'2:30 PM' , text:'2:30 PM' },
+  {key:7 ,value:'2:45 PM' , text:'2:45 PM' },
+  {key:8 ,value:'3:00 PM' , text:'3:00 PM' },
+  {key:9 ,value:'3:15 PM' , text:'3:15 PM' },
+  {key:10 ,value:'3:30 PM' , text:'3:30 PM' },
+  {key:11 ,value:'3:45 PM' , text:'3:45 PM' },
+  {key:12 ,value:'4:00 PM' , text:'4:00 PM' },
+  {key:13 ,value:'4:15 PM' , text:'4:15 PM' },
+  {key:14 ,value:'4:30 PM' , text:'4:30 PM' }
+]
 
 class ResPage extends Component {
   constructor(props) {
@@ -76,303 +110,29 @@ class ResPage extends Component {
   };
 
   render() {
-    let timePickUpDropDown;
-  //   let morningvar=(<option className="dropdownStyle" value="6:30 AM">
-  //   6:30 AM
-  // </option>
-  // <option className="dropdownStyle" value="6:45 AM">
-  //   6:45 AM
-  // </option>
-  // <option className="dropdownStyle" value="7:00 AM">
-  //   7:00 AM
-  // </option>
-  // <option className="dropdownStyle" value="7:15 AM">
-  //   7:15 AM
-  // </option>
-  // <option className="dropdownStyle" value="7:30 AM">
-  //   7:30 AM
-  // </option>
-  // <option className="dropdownStyle" value="7:45 AM">
-  //   7:45 AM
-  // </option>
-  // <option className="dropdownStyle" value="8:00 AM">
-  //   8:00 AM
-  // </option>
-  // <option className="dropdownStyle" value="8:15 AM">
-  //   8:15 AM
-  // </option>
-  // <option className="dropdownStyle" value="8:30 AM">
-  //   8:30 AM
-  // </option>
-  // <option className="dropdownStyle" value="8:45 AM">
-  //   8:45 AM
-  // </option>
-  // <option className="dropdownStyle" value="9:00 AM">
-  //   9:00 AM
-  // </option>
-  // <option className="dropdownStyle" value="9:15 AM">
-  //   9:15 AM
-  // </option>
-  // <option className="dropdownStyle" value="9:30 AM">
-  //   9:30 AM
-  // </option>
-  // <option className="dropdownStyle" value="9:40 AM">
-  //   9:40 AM
-  // </option>
-  // <option className="dropdownStyle" value="10:00 AM">
-  //   10:00 AM
-  // </option>
-  // <option className="dropdownStyle" value="10:15 AM">
-  //   10:15 AM
-  // </option>
-  // <option className="dropdownStyle" value="10:30 AM">
-  //   10:30 AM
-  // </option>
-  // <option className="dropdownStyle" value="10:45 AM">
-  //   10:45 AM
-  // </option>
-  // <option className="dropdownStyle" value="11:00 AM">
-  //   11:00 AM
-  // </option>
-  // );
-    let eveningvar=(<select className="dropdownStyle" ref="exactTimePickUp">
-    <option
-      className="dropdownStyle"
-      value="null"
-      disable="true"
-      selected
-      hidden
-    >
-      Select a time frame for pickup
-    </option>
-    <option className="dropdownStyle" value="1:00 PM"> 
-      {" "}
-      1:00 PM
-    </option>
-    <option className="dropdownStyle" value="1:15 PM">
-      {" "}
-      1:15 PM
-    </option>
-    <option className="dropdownStyle" value="1:30 PM">
-      {" "}
-      1:30 PM
-    </option>
-    <option className="dropdownStyle" value="1:45 PM">
-      {" "}
-      1:45 PM
-    </option>
-    <option className="dropdownStyle" value="2:00 PM">
-      {" "}
-      2:00 PM
-    </option>
-    <option className="dropdownStyle" value="2:15 PM">
-      {" "}
-      2:15 PM
-    </option>
-    <option className="dropdownStyle" value="2:30 PM">
-      {" "}
-      2:30 PM
-    </option>
-    <option className="dropdownStyle" value="2:45 PM">
-      {" "}
-      2:45 PM
-    </option>
-    <option className="dropdownStyle" value="3:00 PM">
-      {" "}
-      3:00 PM
-    </option>
-    <option className="dropdownStyle" value="3:15 PM">
-      {" "}
-      3:15 PM
-    </option>
-    <option className="dropdownStyle" value="3:30 PM">
-      {" "}
-      3:30 PM
-    </option>
-    <option className="dropdownStyle" value="3:45 PM">
-      {" "}
-      3:45 PM
-    </option>
-    <option className="dropdownStyle" value="4:00 PM">
-      {" "}
-      4:00 PM
-    </option>
-    <option className="dropdownStyle" value="4:15 PM">
-      {" "}
-      4:15 PM
-    </option>
-    <option className="dropdownStyle" value="4:30 PM">
-      {" "}
-      4:30 PM
-    </option>
-    <option className="dropdownStyle" value="4:45 PM">
-      {" "}
-      4:45 PM
-    </option>
-    <option className="dropdownStyle" value="5:00 PM">
-      {" "}
-      5:00 PM
-    </option>
-    <option className="dropdownStyle" value="5:15 PM">
-      {" "}
-      5:15 PM
-    </option>
-    <option className="dropdownStyle" value="5:30 PM">
-      {" "}
-      5:30 PM
-    </option>
-    <option className="dropdownStyle" value="5:45 PM">
-      {" "}
-      5:45 PM
-    </option>
-    <option className="dropdownStyle" value="6:00 PM">
-      {" "}
-      6:00 PM
-    </option>
-    <option className="dropdownStyle" value="6:15 PM">
-      {" "}
-      6:15 PM
-    </option>
-    <option className="dropdownStyle" value="6:30 PM">
-      {" "}
-      6:30 PM
-    </option>
-    <option className="dropdownStyle" value="6:45 PM">
-      {" "}
-      6:45 PM
-    </option> 
-  </select>);
+
+   let timePickUpDropDown;
+   let timeValue;
+   let timeText;
     if (this.state.timePickUp === null) {
       timePickUpDropDown = "";
     } else if (this.state.timePickUp === "AM") {
-      timePickUpDropDown = (
-        <select className="dropdownStyle" ref="exactTimePickUp">
-          <option
-            className="dropdownStyle"
-            value="null"
-            disable="true"
-            selected
-            hidden
-          >
-            Select a time frame for pickup
-          </option>
-          <option>
-          {}
-          </option>
-        </select>
-      );
+      timePickUpDropDown = amDropdown.map(key=>{ 
+        console.log(key);
+        timeValue=key;
+        return timeValue
+      }
+      )
+      console.log(timePickUpDropDown);
     } else if (this.state.timePickUp === "PM") {
-      timePickUpDropDown = (
-        <select className="dropdownStyle" ref="exactTimePickUp">
-          <option
-            className="dropdownStyle"
-            value="null"
-            disable="true"
-            selected
-            hidden
-          >
-            Select a time frame for pickup
-          </option>
-          <option className="dropdownStyle" value="1:00 PM"> */}
-            {" "}
-            1:00 PM
-          </option>
-          <option className="dropdownStyle" value="1:15 PM">
-            {" "}
-            1:15 PM
-          </option>
-          <option className="dropdownStyle" value="1:30 PM">
-            {" "}
-            1:30 PM
-          </option>
-          <option className="dropdownStyle" value="1:45 PM">
-            {" "}
-            1:45 PM
-          </option>
-          <option className="dropdownStyle" value="2:00 PM">
-            {" "}
-            2:00 PM
-          </option>
-          <option className="dropdownStyle" value="2:15 PM">
-            {" "}
-            2:15 PM
-          </option>
-          <option className="dropdownStyle" value="2:30 PM">
-            {" "}
-            2:30 PM
-          </option>
-          <option className="dropdownStyle" value="2:45 PM">
-            {" "}
-            2:45 PM
-          </option>
-          <option className="dropdownStyle" value="3:00 PM">
-            {" "}
-            3:00 PM
-          </option>
-          <option className="dropdownStyle" value="3:15 PM">
-            {" "}
-            3:15 PM
-          </option>
-          <option className="dropdownStyle" value="3:30 PM">
-            {" "}
-            3:30 PM
-          </option>
-          <option className="dropdownStyle" value="3:45 PM">
-            {" "}
-            3:45 PM
-          </option>
-          <option className="dropdownStyle" value="4:00 PM">
-            {" "}
-            4:00 PM
-          </option>
-          <option className="dropdownStyle" value="4:15 PM">
-            {" "}
-            4:15 PM
-          </option>
-          <option className="dropdownStyle" value="4:30 PM">
-            {" "}
-            4:30 PM
-          </option>
-          <option className="dropdownStyle" value="4:45 PM">
-            {" "}
-            4:45 PM
-          </option>
-          <option className="dropdownStyle" value="5:00 PM">
-            {" "}
-            5:00 PM
-          </option>
-          <option className="dropdownStyle" value="5:15 PM">
-            {" "}
-            5:15 PM
-          </option>
-          <option className="dropdownStyle" value="5:30 PM">
-            {" "}
-            5:30 PM
-          </option>
-          <option className="dropdownStyle" value="5:45 PM">
-            {" "}
-            5:45 PM
-          </option>
-          <option className="dropdownStyle" value="6:00 PM">
-            {" "}
-            6:00 PM
-          </option>
-          <option className="dropdownStyle" value="6:15 PM">
-            {" "}
-            6:15 PM
-          </option>
-          <option className="dropdownStyle" value="6:30 PM">
-            {" "}
-            6:30 PM
-          </option>
-          <option className="dropdownStyle" value="6:45 PM">
-            {" "}
-            6:45 PM
-          </option> 
-        </select>
-      );
-      console.log("PM");
+      timePickUpDropDown = pmDropdown.map(key=>{ 
+        timeValue=key;
+        return timeValue
+      }
+      )
     }
+    
+
     return (
       <div className="selectionpage">
         <div className="selection">
@@ -469,16 +229,25 @@ class ResPage extends Component {
             <option value="PM">PM</option>
           </select>
         </div>
-        <div className="selection">{timePickUpDropDown}</div>
+        <div className="selection"><select className="dropdownStyle" ref="exactTimePickUp">
+    <option
+      className="dropdownStyle"
+      value="null"
+      disable="true"
+      selected
+      hidden
+    >
+      Select a time frame for pickup
+    </option>
+    <option key={timePickUpDropDown.key} value={timePickUpDropDown.value}>{timePickUpDropDown.text}</option>
+    </select></div>
         <Calendar
           style={style}
           onDayClick={(e, day) => this.onDayClick(e, day)}
         />
-        <div>
-          <div>
+        <div className="giver">
             <button onClick={this.newRes}>Lets Fly!</button>
-          </div>
-          <Reservation />
+         
         </div>
       </div>
     );

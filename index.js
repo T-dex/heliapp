@@ -30,6 +30,7 @@ app.post("/api", (req, res) => {
       </tr>
   </table>
   <table>
+  <td align="center>
     <Head style="color:blue; width:100vh: height:15vh;">Get Ready to Fly, Here is all the information you need</head>
     
     <p>You will be flying from out of the ${req.body.Res.operatingArea}</p>
@@ -39,6 +40,7 @@ app.post("/api", (req, res) => {
     }</p>
     <p>On ${req.body.Res.day} at ${req.body.Res.pickupTime}</p>
     <p style="font-size:2vh;">This meassage was sent to ${req.body.user}</p>
+  </td>
   </table>`;
   console.log(req.body.Res, req.body.user);
   var data = {

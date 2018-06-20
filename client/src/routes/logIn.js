@@ -25,7 +25,8 @@ class logIn extends Component {
   pageLogout() {
     const email = null;
     const uid = null;
-    const userData = { email, uid };
+    const remainingDays= null;
+    const userData = { email, uid, remainingDays };
     this.props.logOut(userData);
     firebase.auth().signOut();
     localStorage.removeItem("email");
