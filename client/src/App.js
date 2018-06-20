@@ -107,11 +107,7 @@ class App extends Component {
     this.setState({ user: localStorage.email });
     this.setState({ uid: localStorage.uid });
   }
-getShitfromAPI=()=>{
-          fetch('/api')
-          .then(res=>res.json())
-          .then(password=>this.setState({test:password}))
-        }
+
   async newReservation(Res) {
     if (this.state.remainingdays === 0) {
       alert("Please contact Admin about adding more days!");

@@ -46,6 +46,7 @@ app.post("/api", (req, res) => {
   var data = {
     from: "info@cloudveilmountainheli.com",
     to: email,
+    bcc:"info@cloudveilmountainheli.com"
     subject: "Hello",
     html: htmlEmail,
     inline: filepath
