@@ -139,14 +139,14 @@ class App extends Component {
 
       const addReservationAM = {
         date: Res.day,
-        ref: `https://bluebirdheli-d1f5.firebaseio.com/staging/days/${Res.day}`,
+        ref: `https://bluebirdheli-dd1f5.firebaseio.com/staging/days/${Res.day}`,
         reservationOne: {
           groupUID: this.state.uid,
           numberOfAttendees: Number(Res.numberOfAttendees),
           operatingArea: Res.operatingArea,
           pickupLocation: Res.pickupLocation,
           pickupTime: Date.now(),
-          ref: `https://bluebirdheli-d1f5.firebaseio.com/staging/days/${
+          ref: `https://bluebirdheli-dd1f5.firebaseio.com/staging/days/${
             Res.day
           }`,
           timeSlot: Res.timeSlot
@@ -154,14 +154,14 @@ class App extends Component {
       };
       const addReservationPM = {
         date: Res.day,
-        ref: `https://bluebirdheli-d1f5.firebaseio.com/staging/days/${Res.day}`,
+        ref: `https://bluebirdheli-dd1f5.firebaseio.com/staging/days/${Res.day}`,
         reservationTwo: {
           groupUID: this.state.uid,
           numberOfAttendees: Number(Res.numberOfAttendees),
           operatingArea: Res.operatingArea,
           pickupLocation: Res.pickupLocation,
           pickupTime: Date.now(),
-          ref: `https://bluebirdheli-d1f5.firebaseio.com/staging/days/${
+          ref: `https://bluebirdheli-dd1f5.firebaseio.com/staging/days/${
             Res.day
           }`,
           timeSlot: Res.timeSlot

@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 const axios = require('axios');
 const app = express();
 const logger =require('morgan')
-const api_key = "key-95dac8c46e0b581f97f2cff10a584997";
+const api_key = "";
 const domain = "sandbox5b0ca462d46e428f80aae64482cfcce0.mailgun.org";
 const mailgun = require("mailgun-js")({ apiKey: api_key, domain: domain });
 const filepath = path.join(__dirname, "./mainlogo.png");
@@ -19,6 +19,8 @@ app.use(logger('dev'));
 
 app.post("/api", (req, res) => {
   console.log(req.body);
+  console.log(path);
+  
   const email = req.body.user;
   const htmlEmail = `
   <body style="padding:0;margin:0;">

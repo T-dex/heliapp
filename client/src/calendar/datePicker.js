@@ -8,47 +8,48 @@ const style = {
   margin: "50px auto",
   width: "502px"
 };
-const amDropdown=[
-  {key:0 ,value:'6:30 AM' , text:'6:30 AM' },
-  {key:1 ,value:'6:45 AM' , text:'6:45 AM' },
-  {key:2 ,value:'7:00 AM' , text:'7:00 AM' },
-  {key:3 ,value:'7:15 AM' , text:'7:15 AM' },
-  {key:4 ,value:'7:30 AM' , text:'7:30 AM' },
-  {key:5 ,value:'7:45 AM' , text:'7:45 AM' },
-  {key:6 ,value:'8:00 AM' , text:'8:00 AM' },
-  {key:7 ,value:'8:15 AM' , text:'8:15 AM' },
-  {key:8 ,value:'8:30 AM' , text:'8:30 AM' },
-  {key:9 ,value:'8:45 AM' , text:'8:45 AM' },
-  {key:10 ,value:'9:00 AM' , text:'9:00 AM' },
-  {key:11 ,value:'9:15 AM' , text:'9:15 AM' },
-  {key:12 ,value:'9:30 AM' , text:'9:30 AM' },
-  {key:13 ,value:'9:45 AM' , text:'9:45 AM' },
-  {key:14 ,value:'10:00 AM' , text:'10:00 AM' }
-]
-const pmDropdown=[
-  {key:0 ,value:'1:00 PM' , text:'1:00 PM' },
-  {key:1 ,value:'1:15 PM' , text:'1:15 PM' },
-  {key:2 ,value:'1:30 PM' , text:'1:30 PM' },
-  {key:3 ,value:'1:45 PM' , text:'1:45 PM' },
-  {key:4 ,value:'2:00 PM' , text:'2:00 PM' },
-  {key:5 ,value:'2:15 PM' , text:'2:15 PM' },
-  {key:6 ,value:'2:30 PM' , text:'2:30 PM' },
-  {key:7 ,value:'2:45 PM' , text:'2:45 PM' },
-  {key:8 ,value:'3:00 PM' , text:'3:00 PM' },
-  {key:9 ,value:'3:15 PM' , text:'3:15 PM' },
-  {key:10 ,value:'3:30 PM' , text:'3:30 PM' },
-  {key:11 ,value:'3:45 PM' , text:'3:45 PM' },
-  {key:12 ,value:'4:00 PM' , text:'4:00 PM' },
-  {key:13 ,value:'4:15 PM' , text:'4:15 PM' },
-  {key:14 ,value:'4:30 PM' , text:'4:30 PM' }
-]
+
 
 class ResPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       date: "",
-      timePickUp: null
+      timePickUp: null,
+      amPickup:[
+        {key:0 ,value:'6:30 AM' , text:'6:30 AM' },
+        {key:1 ,value:'6:45 AM' , text:'6:45 AM' },
+        {key:2 ,value:'7:00 AM' , text:'7:00 AM' },
+        {key:3 ,value:'7:15 AM' , text:'7:15 AM' },
+        {key:4 ,value:'7:30 AM' , text:'7:30 AM' },
+        {key:5 ,value:'7:45 AM' , text:'7:45 AM' },
+        {key:6 ,value:'8:00 AM' , text:'8:00 AM' },
+        {key:7 ,value:'8:15 AM' , text:'8:15 AM' },
+        {key:8 ,value:'8:30 AM' , text:'8:30 AM' },
+        {key:9 ,value:'8:45 AM' , text:'8:45 AM' },
+        {key:10 ,value:'9:00 AM' , text:'9:00 AM' },
+        {key:11 ,value:'9:15 AM' , text:'9:15 AM' },
+        {key:12 ,value:'9:30 AM' , text:'9:30 AM' },
+        {key:13 ,value:'9:45 AM' , text:'9:45 AM' },
+        {key:14 ,value:'10:00 AM' , text:'10:00 AM' }
+      ],
+      pmPickUp:[
+        {key:0 ,value:'1:00 PM' , text:'1:00 PM' },
+        {key:1 ,value:'1:15 PM' , text:'1:15 PM' },
+        {key:2 ,value:'1:30 PM' , text:'1:30 PM' },
+        {key:3 ,value:'1:45 PM' , text:'1:45 PM' },
+        {key:4 ,value:'2:00 PM' , text:'2:00 PM' },
+        {key:5 ,value:'2:15 PM' , text:'2:15 PM' },
+        {key:6 ,value:'2:30 PM' , text:'2:30 PM' },
+        {key:7 ,value:'2:45 PM' , text:'2:45 PM' },
+        {key:8 ,value:'3:00 PM' , text:'3:00 PM' },
+        {key:9 ,value:'3:15 PM' , text:'3:15 PM' },
+        {key:10 ,value:'3:30 PM' , text:'3:30 PM' },
+        {key:11 ,value:'3:45 PM' , text:'3:45 PM' },
+        {key:12 ,value:'4:00 PM' , text:'4:00 PM' },
+        {key:13 ,value:'4:15 PM' , text:'4:15 PM' },
+        {key:14 ,value:'4:30 PM' , text:'4:30 PM' }
+      ]
     };
     this.newRes = this.newRes.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -117,19 +118,10 @@ class ResPage extends Component {
     if (this.state.timePickUp === null) {
       timePickUpDropDown = "";
     } else if (this.state.timePickUp === "AM") {
-      timePickUpDropDown = amDropdown.map(key=>{ 
-        console.log(key);
-        timeValue=key;
-        return timeValue
-      }
-      )
+      
+      
       console.log(timePickUpDropDown);
     } else if (this.state.timePickUp === "PM") {
-      timePickUpDropDown = pmDropdown.map(key=>{ 
-        timeValue=key;
-        return timeValue
-      }
-      )
     }
     
 
@@ -239,7 +231,6 @@ class ResPage extends Component {
     >
       Select a time frame for pickup
     </option>
-    <option key={timePickUpDropDown.key} value={timePickUpDropDown.value}>{timePickUpDropDown.text}</option>
     </select></div>
         <Calendar
           style={style}
