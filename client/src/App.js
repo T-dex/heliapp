@@ -10,11 +10,11 @@ import Weather from "./weather.js/weather";
 import { withRouter } from "react-router-dom";
 import axios from 'axios'
 
-const date=   new Date();
+const date=  new Date();
 const month = date.getMonth()+1;
 const updatedMonth= month < 10 ? "0"+month : month
 const year = date.getFullYear();
-const day= date.getDay();
+const day= date.getDate();
 const updatedDay=day < 10 ? "0"+ day : day
 const currentDate= year + "-"+updatedMonth+"-"+updatedDay;
 
@@ -39,7 +39,6 @@ class App extends Component {
   componentDidMount() {
    const rootRef=firebase.database().ref()
    const mainRef=rootRef.child('staging');
-   console.log(mainRef);
    
    mainRef.on('value', snap=>{
      this.setState({production:snap.val()})
@@ -65,7 +64,7 @@ class App extends Component {
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise
       .then(snapshot => {
-        console.log(snapshot);
+        
         let logInSucess = "Logging in...";
         const userName = "Welcome back";
         this.setState({ user: snapshot.user.email });
@@ -90,7 +89,6 @@ class App extends Component {
       .catch(error => {
         console.log("not sent");
       });
-    console.log(email);
   }
   logOut(pageLogout) {
     this.setState({ user: null });
@@ -111,7 +109,7 @@ class App extends Component {
   async newReservation(Res) {
     if (this.state.remainingdays === 0) {
       alert("Please contact Admin about adding more days!");
-    } else if(Res.day<currentDate){
+    } else if(Res.day < currentDate){
       alert("We are workign on time travel but don't have the ability yet to fly into the past...")
     }else {
       let res = Object.keys(this.state.production.days).map(
@@ -175,11 +173,11 @@ class App extends Component {
         alert("All booked up! Please Select a different day!");
       } else if (resMapOne.includes(Res.day + " " + Res.timeSlot)) {
         alert(
-          "This time slot is not avaiable please select a different time on that day"
+          "This time slot is not available please select a different time on that day"
         );
       } else if (resMapTwo.includes(Res.day + " " + Res.timeSlot)) {
         alert(
-          "This time slot is not avaiable please select a different time on that day"
+          "This time slot is not available please select a different time on that day"
         );
       } else {
         //Checking days to imput either reservation One or Two
@@ -192,7 +190,6 @@ class App extends Component {
               ...this.state.production.days,
               [Res.day]: addReservationAM
             };
-            console.log(updatedReservationsAM);
             this.setState(prevState => ({
               production: {
                 ...prevState.production,
@@ -253,10 +250,6 @@ class App extends Component {
               return key.remainingTrips;
             }
           });
-        console.log(res, Res);
-        console.log(
-          addReservationAM.reservationOne || addReservationPM.reservationTwo
-        );
         const { user } = this.state;
         const emailUserAndAdmin = await axios.post("api", {
           user,
@@ -267,7 +260,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(currentDate, updatedMonth);
+
     
     if (this.state.user !== null) {
       const remainingDays = { ...this.state.production.users };
