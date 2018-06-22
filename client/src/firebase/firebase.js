@@ -9,7 +9,6 @@ const config = {
 };
 firebase.initializeApp(config)
 const testAuth=firebase.auth();
-console.log(testAuth);
 
 
 export const auth = firebase.auth();

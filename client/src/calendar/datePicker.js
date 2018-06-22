@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Reservation from "./reservations";
 import Calendar from "./calendar";
+import Dropdown from './dropdown';
 import uuid from "uuid";
 
 const style = {
@@ -33,7 +34,7 @@ class ResPage extends Component {
         {key:13 ,value:'9:45 AM' , text:'9:45 AM' },
         {key:14 ,value:'10:00 AM' , text:'10:00 AM' }
       ],
-      pmPickUp:[
+      pmPickup:[
         {key:0 ,value:'1:00 PM' , text:'1:00 PM' },
         {key:1 ,value:'1:15 PM' , text:'1:15 PM' },
         {key:2 ,value:'1:30 PM' , text:'1:30 PM' },
@@ -64,7 +65,6 @@ class ResPage extends Component {
     let newtime = "";
     let newTimeDropDown = event.target.value;
     newtime = newTimeDropDown;
-    console.log(newtime);
     this.setState({ timePickUp: newtime });
   };
 
@@ -111,17 +111,13 @@ class ResPage extends Component {
   };
 
   render() {
-
-   let timePickUpDropDown;
-   let timeValue;
-   let timeText;
+    let timePickUpDropDown;
     if (this.state.timePickUp === null) {
-      timePickUpDropDown = "";
-    } else if (this.state.timePickUp === "AM") {
-      
-      
-      console.log(timePickUpDropDown);
-    } else if (this.state.timePickUp === "PM") {
+      timePickUpDropDown = [];
+    }else if(this.state.timePickUp==="AM"){
+      timePickUpDropDown=this.state.amPickup
+    }else if(this.state.timePickUp==="PM"){
+      timePickUpDropDown=this.state.pmPickup
     }
     
 
@@ -133,7 +129,7 @@ class ResPage extends Component {
               className="dropdownStyle"
               value="null"
               disable="true"
-              selected
+              defaultValue
               hidden
             >
               Choose Your Operating Area
@@ -155,7 +151,7 @@ class ResPage extends Component {
               className="dropdownStyle"
               value="null"
               disable="true"
-              selected
+              defaultValue
               hidden
             >
               Choose Your Pick Up Location
@@ -177,7 +173,7 @@ class ResPage extends Component {
               className="dropdownStyle"
               value="null"
               disable="true"
-              selected
+              defaultValue
               hidden
             >
               Choose the amount of Guest
@@ -214,7 +210,7 @@ class ResPage extends Component {
             onChange={this.timechange}
             ref="pickupTime"
           >
-            <option disable="true" value="null" selected hidden>
+            <option disable="true" value="null" defaultValue hidden>
               AM or PM
             </option>
             <option value="AM">AM</option>
@@ -226,11 +222,17 @@ class ResPage extends Component {
       className="dropdownStyle"
       value="null"
       disable="true"
-      selected
+      defaultValue
       hidden
     >
       Select a time frame for pickup
     </option>
+    [<Dropdown className="dropdownStyle" key="empty"/>].concat({timePickUpDropDown.map(key=>
+   { return <Dropdown key={key.key} value={key.value}/>
+     } 
+  )
+
+    })
     </select></div>
         <Calendar
           style={style}

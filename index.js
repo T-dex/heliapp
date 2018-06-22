@@ -36,7 +36,7 @@ app.post("/api", (req, res) => {
     <Head style="color:blue; width:100vh: height:15vh;">Get Ready to Fly, Here is all the information you need</head>
     
     <p>You will be flying from out of the ${req.body.Res.operatingArea}</p>
-    <p>You will be picked up at our ${req.body.Res.pickupLocation}</p>
+    <p>You will be picked up at our ${req.body.Res.pickupLocation} at ${req.body.Res.pickupTime}</p>
     <p>You are going to be flying with a party of ${
       req.body.Res.numberOfAttendees
     }</p>

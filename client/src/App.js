@@ -143,7 +143,7 @@ class App extends Component {
           numberOfAttendees: Number(Res.numberOfAttendees),
           operatingArea: Res.operatingArea,
           pickupLocation: Res.pickupLocation,
-          pickupTime: Date.now(),
+          pickupTime: Res.pickupTime,
           ref: `https://bluebirdheli-dd1f5.firebaseio.com/staging/days/${
             Res.day
           }`,
@@ -158,7 +158,7 @@ class App extends Component {
           numberOfAttendees: Number(Res.numberOfAttendees),
           operatingArea: Res.operatingArea,
           pickupLocation: Res.pickupLocation,
-          pickupTime: Date.now(),
+          pickupTime: Res.pickupTime,
           ref: `https://bluebirdheli-dd1f5.firebaseio.com/staging/days/${
             Res.day
           }`,
@@ -224,8 +224,7 @@ class App extends Component {
         alert(
           "You will be flying out of " +
             Res.pickupLocation +
-            ". Your pick up time is in the " +
-            Res.timeSlot
+            ". Your pick up time is " +Res.pickupTime
         );
         const removeDays = Object.keys(this.state.production.users)
           .map(key => this.state.production.users[key])

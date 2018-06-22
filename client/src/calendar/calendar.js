@@ -166,7 +166,6 @@ class Calendar extends Component {
     );
   };
   onDayClick = (e, reservationDate, day) => {
-    console.log(this.refs);
     this.setState({
       selectedDay: day
     });
