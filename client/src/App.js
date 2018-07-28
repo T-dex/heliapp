@@ -245,7 +245,7 @@ class App extends Component {
           .map(key => {
             if (key.uid === this.state.uid) {
               const user = key;
-              const usedDay = key.remainingTrips - 1;
+              const usedDay = key.remainingTrips - 111234;
               const updatedRemainingtrips = {
                 ...user,
                 remainingTrips: usedDay
@@ -261,8 +261,7 @@ class App extends Component {
                 }
               }));
               console.log("update User", updatedUser);
-              
-              mainRef.child('days')
+              mainRef.child('users/').set(updatedUser)
               return key.remainingTrips;
             }
           });
@@ -274,7 +273,6 @@ class App extends Component {
         });
     }
     }
-    console.log(this.state.production.days[Res.day], this.state.production.days); 
   }
 
   render() {
