@@ -19,6 +19,7 @@ const updatedDay=day < 10 ? "0"+ day : day
 const currentDate= year + "-"+updatedMonth+"-"+updatedDay;
 const rootRef=firebase.database().ref()
 const mainRef=rootRef.child('staging');
+let ResDay;
 
 class App extends Component {
   constructor(props) {
@@ -183,42 +184,52 @@ class App extends Component {
         );
       } else {
         //Checking days to imput either reservation One or Two
-        let updatedReservations;
         const checkFilter = Object.keys(res)
           .map(key => res[key])
           .filter(key => {
             let varKey = [];
             varKey = key;
-            updatedReservations = {
+            const updatedReservationsAM = {
               ...this.state.production.days,
               [Res.day]: addReservationAM
             };
-           
-            console.log("check Res AM", updatedReservations);
+            this.setState(prevState => ({
+              production: {
+                ...prevState.production,
+                days: updatedReservationsAM
+              }
+            }));
             
             return varKey;
           });
+          
         // This should be the area that getting reservationTwo pushed in.
 
         const checkRes = Object.keys(res).filter(key => {
           let resOne = res[key];
           if (resOne.date === Res.day) {
-            updatedReservations = {
+            let resUpdate=resOne;
+            let newTwoRes= addReservationPM.reservationTwo
+            const updatedDays={
+              ...resUpdate,
+              reservationTwo:newTwoRes
+            }
+          
+            const updatedReservationsPM = {
               ...this.state.production.days,
-              [Res.day]: addReservationPM
+              [Res.day]:updatedDays
             };
-           
-          console.log("chech res PM", updatedReservations);
+            this.setState(prevState => ({
+              production: {
+                ...prevState.production,
+                days: updatedReservationsPM
+              }
+            }));
+         
           
           }
         });
-         this.setState(prevState => ({
-              production: {
-                ...prevState.production,
-                days: updatedReservations
-              }
-            }));
-            mainRef.child('')
+        
         alert(
           "You are booked for " +
             Res.operatingArea +
@@ -256,9 +267,7 @@ class App extends Component {
               return key.remainingTrips;
             }
           });
-          
-          
-          
+          ResDay=Res.day;
         const { user } = this.state;
         const emailUserAndAdmin = await axios.post("api", {
           user,
@@ -266,7 +275,7 @@ class App extends Component {
         });
     }
     }
-    
+    console.log(this.state.production.days[Res.day], this.state.production.days); 
   }
 
   render() {

@@ -9,12 +9,13 @@ class Header extends Component {
   }
 
   render() {
-    const madeReservations = Object.keys(this.props.reservations).map(
-      key => this.props.reservations[key]
-    ).map(key=>{
-      return key.reservationOne || key.reservationTwo
-    }
-    )
+    // const madeReservations = Object.keys(this.props.reservations).map(
+    //   key => this.props.reservations[key]
+    // ).map(key=>{
+    //   return key.reservationOne || key.reservationTwo
+    // }
+    // )
+    const madeReservations=""
     // const updatedReservations = madeReservations.map(key =>madeReservations[key]).map(key=>console.log(key)
     // )
    
