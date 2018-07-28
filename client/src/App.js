@@ -199,7 +199,7 @@ class App extends Component {
                 days: updatedReservationsAM
               }
             }));
-            
+            mainRef.child('days/').set(updatedReservationsAM)
             return varKey;
           });
           
@@ -225,8 +225,7 @@ class App extends Component {
                 days: updatedReservationsPM
               }
             }));
-         
-          
+            mainRef.child('days/').set(updatedReservationsPM)
           }
         });
         
