@@ -245,7 +245,7 @@ class App extends Component {
           .map(key => {
             if (key.uid === this.state.uid) {
               const user = key;
-              const usedDay = key.remainingTrips - 111234;
+              const usedDay = key.remainingTrips - 1;
               const updatedRemainingtrips = {
                 ...user,
                 remainingTrips: usedDay
