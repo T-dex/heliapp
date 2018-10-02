@@ -7,15 +7,14 @@ class InstaFeed extends Component {
     )
       .then(results => {
         const reader = results.body.getReader();
-        console.log(reader, "test Reader");
         return results.body;
       })
       .then(results => {
-        console.log(results, "test2");
+       
       });
   }
   render() {
-    return <h1>\</h1>;
+    return <h1>""</h1>;
   }
 }
 

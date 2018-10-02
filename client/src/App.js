@@ -319,6 +319,7 @@ class App extends Component {
             return key;
           })}
           picture={this.state.production.images}
+          uid={this.state.uid}
           videos={this.state.production.videos}
         />
       );

@@ -7,19 +7,21 @@ class Pics extends Component {
   }
 
   render() {
-    console.log(this.props.picture);
+   let random=Math.floor(Math.random()*666)
     return (
       <div>
         <div className="PicDisplay">
           {Object.keys(this.props.picture).map(keys => {
+            if(keys==this.props.uid){
             return (
               <PicDisplay
                 key={keys}
-                dates={this.props.picture.date}
+                dates={this.props.picture[keys].date}
                 index={keys}
                 src={this.props.picture[keys]}
               />
             );
+            }
           })}
         </div>
       </div>

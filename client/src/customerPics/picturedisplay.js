@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PicBox from "./pictureBox";
+import { log } from "util";
 
 class PicDisplay extends Component {
   constructor(props) {
@@ -8,6 +9,8 @@ class PicDisplay extends Component {
 
   render() {
     const picsDis = Object.keys(this.props.src).map(key => this.props.src[key]);
+    console.log(picsDis);
+    let random= Math.floor(Math.random()*160606)
 
     return (
       <div className="BrianBoitano">
@@ -15,7 +18,7 @@ class PicDisplay extends Component {
           return (
             <PicBox
               className="BrianBoitano"
-              key={keys}
+              key={random}
               src={picsDis[keys]}
               dates={Object.keys(this.props.src)}
             />

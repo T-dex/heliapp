@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { log } from "util";
+
+const date=  new Date();
+const month = date.getMonth()+1;
+const updatedMonth= month < 10 ? "0"+month : month
+const year = date.getFullYear();
+const day= date.getDate();
+const updatedDay=day < 10 ? "0"+ day : day
+const currentDate= updatedMonth+"-"+updatedDay;
 
 class Calendar extends Component {
   state = {
@@ -188,26 +197,28 @@ class Calendar extends Component {
       );
     }
     //Removed className from current day until figure out how to display correct day and flying days
+    console.log(currentDate);
+    
     let daysInMonth = [];
     for (let day = 1; day <= this.daysInMonth(); day++) {
+      
       let month = moment().month() + 1;
-      let monthToString = month.toString();
-      let classDate = monthToString + "-" + day.toString();
-      // let nextFlyDay = monthToString + "-" + (day + 1).toString();
-      let currentDate = monthToString + "-" + this.currentDay();
-      // let tommorow = monthToString + "-" + this.tomorrowDay();
-      // let twoDaysOut = monthToString + "-" + this.twoDaysOut();
-      let className = classDate == currentDate ? "day current-day" : "day";
+      let monthToString = month.toString();      
       let selectedClass = day == this.state.selectedDay ? " selected-day " : "";
-      let flyingDay1 = day == this.tomorrowDay() ? "fly " : "flyno ";
-      let standby = "standby";
       let dayPickup = day < 10 ? "0" + day : day;
       let monthPickUp =
         monthToString < 10 ? "0" + monthToString : monthToString;
+      let currentDate = monthPickUp + "-" + this.currentDay();
+      let keyDate = this.monthShort() + "-" + dayPickup;
+      let dayOut=monthPickUp + "-" + (this.currentDay()+1);
+      let flyingDay1 = keyDate == this.tomorrowDay() ? "fly " : "flyno ";
+      console.log(dayOut);
+      
+      let className = currentDate == keyDate ? "day current-day" : "day";
       let reservationDate =
         this.year() + "-" + this.monthShort() + "-" + dayPickup;
       daysInMonth.push(
-        <td key={monthPickUp + "-" + dayPickup} ref="day">
+        <td key={keyDate} ref="day">
           <span
             value={monthToString + "-" + dayPickup}
             className={selectedClass + className}
