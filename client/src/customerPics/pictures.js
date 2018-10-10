@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PicDisplay from './picturedisplay';
+import PicBox from './pictureBox';
 
 class Pics extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Pics extends Component {
           {Object.keys(this.props.picture).map(keys => {
             if(keys==this.props.uid){
             return (
-              <PicDisplay
+              <PicBox
                 key={keys}
                 dates={this.props.picture[keys].date}
                 index={keys}

@@ -8,22 +8,30 @@ class PicBox extends Component {
   }
 
   render() {
-    var url = Object.keys(this.props.src).map(key => this.props.src[key]);
+    const picsDis = Object.keys(this.props.src).map(key => this.props.src[key]);
+    console.log(picsDis, this.props.src);
+    var url = Object.keys(picsDis).map(key =>console.log(picsDis[key],picsDis)
+    )
+    console.log(picsDis[0], url);
+    
+    
+    
+    
     const picAdd = Object.keys(url).map(key => {
       let newDis = {};
       newDis[key] = url[key];
-      return newDis[key].url;
+      key=[key]
+      return newDis;
     });
     const uiDisplay = Object.keys(picAdd, url).map(key => {
-      console.log(picAdd);
-      let randomKey= Math.floor(Math.random()*10000000)
+      console.log(this.props,picAdd);
       return (
-        <div key={randomKey}>
-          <h3 className="font">{this.props.dates[key]}</h3>
+        <div key={key}>
+          <h3 className="font">{this.props.src[key]}</h3>
           <div>
             <img
               className="Display"
-              key={randomKey}
+              key={key}
               alt=""
               date={this.props.src[key]}
               src={picAdd[key]}
