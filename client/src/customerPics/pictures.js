@@ -7,7 +7,7 @@ class Pics extends Component {
   }
 
   render() {
-   let random=Math.floor(Math.random()*666)
+
     return (
       <div>
         <div className="PicDisplay">

@@ -16,19 +16,19 @@ class PicBox extends Component {
     });
     const uiDisplay = Object.keys(picAdd, url).map(key => {
       console.log(picAdd);
-      let randomKey= Math.floor(Math.random()*10000000)
+      
       return (
-        <div key={randomKey}>
+        <div key={key}>
           <h3 className="font">{this.props.dates[key]}</h3>
-          <div>
+          <React.Fragment>
             <img
               className="Display"
-              key={randomKey}
+              key={key}
               alt=""
               date={this.props.src[key]}
               src={picAdd[key]}
             />
-          </div>
+          </React.Fragment>
         </div>
       );
     });

@@ -8,19 +8,18 @@ class PicDisplay extends Component {
   }
 
   render() {
-    const picsDis = Object.keys(this.props.src).map(key => this.props.src[key]);
-    console.log(picsDis);
-    let random= Math.floor(Math.random()*160606)
+    const picsDis = Object.keys(this.props.src).map(key => this.props.src[key])
+    console.log({picsDis},this.props.src);
 
     return (
       <div className="BrianBoitano">
-        {Object.keys(picsDis).map(keys => {
+        {Object.keys(this.props.src).map(keys => {
           return (
             <PicBox
               className="BrianBoitano"
-              key={random}
-              src={picsDis[keys]}
-              dates={Object.keys(this.props.src)}
+              key={keys}
+              src={this.props.src[keys]}
+              dates={[keys]}
             />
           );
         })}
